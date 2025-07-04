@@ -1,5 +1,14 @@
 import random
-lista = ['wes', 'duda', 'igor', 'micheline', 'roney', 'lacerda', 'biel', 'chico', 'italo', 'maciel', 'aldo', 'vick']
+lista = []
+nomes = ''
+num = 0
+while nomes != 'fim':
+    nomes = input('Nome:').lower()
+    num += 1
+    print(f'{num} jogadores(as)')
+    if nomes == 'fim':
+        break
+    lista.append(nomes)
 random.shuffle(lista)
 equipe1 = lista[0::3]
 equipe2 = lista[1::3]
@@ -7,6 +16,8 @@ equipe3 = lista[2::3]
 print ('Time 1:\033[4;32m {}\033[m'.format(equipe1)) #\033[m colocado no final é para o que vir em sequencia ficar padrão (preto).
 print ('Time 2:\033[4;34m {}\033[m'.format(equipe2))
 print ('Time 3:\033[4;30m {}\033[m'.format(equipe3))
+
+#CODIGO PARA 3 EQUIPES APENAS
 
 #trabalhando cores:
 #Coloca-se o código dentro do print logo após a primeira aspa
