@@ -1,14 +1,13 @@
-#Programa que analisa planilhas excel(nesse caso, está em formato libreoffice, então a formatação está em html) com base em data,
+#Programa que analisa planilhas excel com pandas e openpyxl(nesse caso, a planilha foi feita em libreoffice, então a formatação está em html) com base em data,
 #e separa apenas os itens que estão com data de vencimento (30 dias) expiradas, dropando os itens repetidos e considerando os mais atuais.
 import pandas as pd
 from datetime import datetime
 
 # Caminho do arquivo
-caminho_arquivo = r"C:\Users\Wesley Ximenes\Downloads\relatorio fatura.xls"
+caminho_arquivo = r"C:\Users\Wesley Ximenes\Downloads\relatorio fatura.xls" #'r' indica que é uma raw string, para evitar conflitos com barras invertidas.
 
 # Lê todas as tabelas do arquivo
 tabelas = pd.read_html(caminho_arquivo, decimal=",", thousands=".") #em html, pois o libre office tem esse formato, se não, usaria o read_excel
-print(f"📊 {len(tabelas)} tabelas encontradas.")
 
 # Seleciona a tabela correta (índice 1)
 df = tabelas[1].copy()
