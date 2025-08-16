@@ -1,71 +1,110 @@
-<!DOCTYPE html> <!--Abre o codigo HTML5-->
-<html lang="pt-br"><!--Raiz do doc, define idioma como PORTUGUES BR-->
-<head><!-- Cabeçalho (metadados, títulos, estilos, etc)-->
-  <meta charset="UTF-8"><!--Define a codificação dos caracteres como UTF-8-->
-  <title>Contatos</title><!--Texto que aparece na aba do navegador-->
-  <style> /*Inicia o CSS embutido no HTML*/
-    body { /*Começa o bloco de estilo*/
-      margin: 0;/*Remove margens externas padrão da página*/
-      padding: 0;/*Remove os espaçamentos internos padrões*/
-      height: 100vh; /*Altura do body, ocupa 100% da altura da janela*/
-      font-family: Arial, sans-serif;/*Define a fonte padrão(Arial ou sans-serif)*/
-      background-image: url('galaxia.jpg');/*Background anexado*/
-      background-size: cover;/*Faz o fundo cobrir toda a área, podendo cortar a imagem*/
-      background-position: center;/*Centraliza o background*/
-      background-repeat: no-repeat;/*Impede que a imagem de fundo se repita*/
-      color: white;/*Cor de texto em branco*/
-    } /*Fecha o bloco de estilos body*/
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfólio Wesley</title>
 
-    .social-container { /*Inicia estilos para o conteiner dos links sociais*/
-      position: fixed; /*Fixa o elemento na tela, não scrolla com a página*/
-      bottom: 20px; /*Posiciona a 20px do fundo*/
-      right: 20px; /*posiciona a 20px da borda direita*/
-      display: flex; /*Flexbox para organizar os filtros*/
-      flex-direction: column; /*Empilha os itens em coluna*/
-      gap: 10px; /*Espaço de 10px entre ps itens*/
-      background-color: rgba(0, 0, 0, 0.6); /*Fundo preto, translúcido, 60% opaco*/
-      padding: 12px; /*Espaço interno de 12px*/
-      border-radius: 12px; /*Cantos arredondados de 12px*/
-      backdrop-filter: blur(6px); /*Desfoca o que está atrás (vidro fosco)*/
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /*Sombra ao redor do conteiner*/
-    } /*Fecha o bloco do conteiner*/
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-image: url('galaxia.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-    .social-link { /*Estilo de cada link social*/
-      display: flex; /*Organiza ícone e texto lado a lado*/
-      align-items: center; /*Alinha verticalmente ao centro*/
-      gap: 10px; /*Espaço de 10px entre ícone e texto*/
-      text-decoration: none; /*Remove sublinhado do texto*/
-      color: white; /*Texto em branco*/
-      font-weight: bold; /*Deixa texto em negrito*/
-      transition: transform 0.2s ease; /*Animações suaves para transformações (hover)*/
-    } /*Fecha bloco do social link*/
+    .top-section {
+      margin-top: 40px;
+      text-align: center;
+    }
 
-    .social-link:hover { /*Bloco do estilo quando cursor passar em cima do link*/
-      transform: scale(1.05); /*Aumenta levemente (5%) do hover*/
-    } /*Fecha o bloco do hover*/
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
+    }
 
-    .social-icon { /*Inicia o estilo das imagens dos ícones*/
-      width: 24px; /*Largura*/
-      height: 24px; /*Altura*/
-    }/*Fecha bloco do estilo das imagens*/
-  </style><!--Fecha o CSS embutido-->
-</head> <!--Fim do cabeçalho-->
-<body> <!--Inicio do corpo da página (conteúdo visível)-->
+    .presentation {
+      font-size: 1.4em;
+      margin-bottom: 40px;
+    }
 
-  <div class="social-container"> <!--Abre o conteiner fixo dos botões sociais-->
-    <a class="social-link" href="https://wa.me/5599999999999" target="_blank"> <!--Link para whatsapp API-->
-      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> <!--ícone SVG do whatsapp com texto alternativo-->
-      WhatsApp <!--Rótulo visível do link-->
-    </a> <!--Fecha o link do whatsapp-->
-    <a class="social-link" href="https://github.com/seu_usuario" target="_blank"> <!--Link para github, em nova aba-->
-      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"> <!--ícone do github-->
-      GitHub <!--Rótulo do link visível-->
-    </a> <!--Fecha o link do github-->
-    <a class="social-link" href="https://linkedin.com/in/seu_usuario" target="_blank"> <!--Link do linkedIn, nova aba-->
-      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn"> <!--Ícone do linkedIn-->
-      LinkedIn <!--Rótulo do link-->
-    </a> <!--Fecha link do linkedIn-->
-  </div> <!--Fecha o contêiner (Social container)-->
+    .social-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 12px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
 
-</body> <!--Fecha o corpo do documento-->
-</html> <!--Fecha o HTML-->
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .social-link:hover {
+      transform: scale(1.05);
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-section">
+    <img class="profile-photo" src="wes.photo.jpeg" alt="Foto de Wesley Ximenes">
+    <div class="presentation">
+      Olá, sou <strong>Wesley Ximenes</strong>!<br>
+      Estudante de Análise e Desenvolvimento de Sistemas.
+    </div>
+  </div>
+
+  <!-- Container de links sociais -->
+  <div class="social-container">
+    <a class="social-link" href="https://wa.me/5581995661772" target="_blank">
+      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      WhatsApp
+    </a>
+    <a class="social-link" href="https://github.com/wes-ximenes" target="_blank">
+      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+      GitHub
+    </a>
+    <a class="social-link" href="https://www.linkedin.com/in/wesley-ximenes-1aa3692bb" target="_blank">
+      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
+      LinkedIn
+    </a>
+    <!-- Novo link para o currículo -->
+    <a class="social-link" href="Curriculo 2025.pdf" target="_blank">
+      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Currículo">
+      Meu currículo
+    </a>
+  </div>
+
+</body>
+</html>
