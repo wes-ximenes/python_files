@@ -1,4 +1,4 @@
-#Programa que analisa planilhas excel com pandas e openpyxl(nesse caso, a planilha foi feita em libreoffice, então a formatação está em html) com base em data,
+#Programa que analisa planilhas excel com pandas, lxml e openpyxl(nesse caso, a planilha foi feita em libreoffice, então a formatação está em html) com base em data,
 #e separa apenas os itens que estão com data de vencimento (30 dias) expiradas, dropando os itens repetidos e considerando os mais atuais.
 import pandas as pd
 from datetime import datetime
