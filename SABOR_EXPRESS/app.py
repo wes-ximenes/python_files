@@ -2,6 +2,8 @@
 
 import os #biblioteca para interações com o sistema operacional, contendo alguns comandos como limpar o terminal os.system("cls").
 
+restaurantes = [] #lista para armazenar os restaurantes cadastrados.
+
 def nome_app():
     print("""
     ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
@@ -29,6 +31,15 @@ def encerrar_app():
     os.system("cls")
     print("Encerrando o Sabor Express... \nAté a próxima!")
 
+def cadastrar_restaurante():
+    os.system("cls")
+    print("CADASTRO DE RESTAURANTES\n")
+    nome_restaurante = input("Digite o nome do restaurante: ")
+    restaurantes.append(nome_restaurante)
+    print(f"\nRestaurante '{nome_restaurante}' cadastrado com sucesso!\n")
+    input("Pressione enter, para voltar ao menu principal...")
+    main()
+
 def escolher_opcao():
     while True:
 
@@ -45,14 +56,12 @@ def escolher_opcao():
             print("Opção inválida! Por favor, digite um número de 1 a 4.\n") #esse except trata se caso o usuário digite um valor que não seja numérico.
 
     if opcao == 1:
-        os.system("cls")
-        print("Você escolheu a opção de cadastrar restaurante.\n")
-        #adicionar a lógica para cadastrar um restaurante       
+        cadastrar_restaurante()
 
     elif opcao == 2:
         os.system("cls")
-        print("Você escolheu a opção de listar restaurantes.\n")
-        #adicionar a lógica para listar restaurantes
+        print("LISTA DE RESTAURANTES CADASTRADOS:\n")
+        print(restaurantes)
 
     elif opcao == 3:
         os.system("cls")
