@@ -2,7 +2,10 @@
 
 import os #biblioteca para interações com o sistema operacional, contendo alguns comandos como limpar o terminal os.system("cls").
 
-restaurantes = [] #lista para armazenar os restaurantes cadastrados.
+restaurantes = [{'nome': 'Umi', 'categoria': 'Japonesa','ativo': True}, 
+                {'nome': 'Burger House', 'categoria': 'Hamburgueria','ativo': False}, 
+                {'nome': 'Pasta Bella', 'categoria': 'Massas','ativo': False}
+                ] #lista de dicionários para armazenar os restaurantes cadastrados, com dicionários se torna mais fácil manipular os dados.
 
 def nome_app():
     print("""
@@ -31,14 +34,27 @@ def encerrar_app():
     os.system("cls")
     print("Encerrando o Sabor Express... \nAté a próxima!")
 
+def voltar_menu():
+    input("Pressione enter, para voltar ao menu principal...")
+    main()
+
 def cadastrar_restaurante():
     os.system("cls")
     print("CADASTRO DE RESTAURANTES\n")
     nome_restaurante = input("Digite o nome do restaurante: ")
     restaurantes.append(nome_restaurante)
     print(f"\nRestaurante '{nome_restaurante}' cadastrado com sucesso!\n")
-    input("Pressione enter, para voltar ao menu principal...")
-    main()
+    voltar_menu()
+
+def listar_restaurantes():
+    os.system("cls")
+    print("LISTA DE RESTAURANTES CADASTRADOS:\n")
+    for restaurante in restaurantes:
+        nome_restaurante = restaurante['nome']
+        categoria_restaurante = restaurante['categoria']
+        print(f"- {nome_restaurante} | Categoria: {categoria_restaurante} | Ativo: {'Sim' if restaurante['ativo'] else 'Não'}\n")
+        #É possivel usar condicionais dentro das f-strings.
+    voltar_menu()
 
 def escolher_opcao():
     while True:
@@ -59,9 +75,7 @@ def escolher_opcao():
         cadastrar_restaurante()
 
     elif opcao == 2:
-        os.system("cls")
-        print("LISTA DE RESTAURANTES CADASTRADOS:\n")
-        print(restaurantes)
+        listar_restaurantes()
 
     elif opcao == 3:
         os.system("cls")
@@ -77,7 +91,7 @@ def main():
     menu_app()
     escolher_opcao()  
 
-if __name__ == "__main__": #declaramos que o arquivo app.py é o arquivo principal, então se "app.py" for executado, a função main() será chamada automaticamente.
+if __name__ == "__main__": #declaramos que o arquivo app.py é o arquivo principal, então se "app.py" for executado no terminal, a função main() será chamada automaticamente.
     main()   
 
 
