@@ -1,6 +1,6 @@
 #utilizar funções em todo o código, ajuda a organizar melhor o código e facilitar a leitura, ficando mais limpo.
 
-import os #biblioteca para interações com o sistema operacional, contendo alguns comandos como limpar o terminal os.system("cls").
+import os #biblioteca para interações com o sistema operacional, contendo alguns comandos como limpar o terminal "os.system("cls")".
 
 restaurantes = [{'nome': 'Umi', 'categoria': 'Japonesa','ativo': True}, 
                 {'nome': 'Burger House', 'categoria': 'Hamburgueria','ativo': False}, 
@@ -41,19 +41,47 @@ def voltar_menu():
 def cadastrar_restaurante():
     os.system("cls")
     print("CADASTRO DE RESTAURANTES\n")
-    nome_restaurante = input("Digite o nome do restaurante: ")
-    restaurantes.append(nome_restaurante)
+    nome_restaurante = input("Digite o nome do restaurante que deseja cadastrar: ")
+    categoria = input(f'Digite a categoria do restaurante {nome_restaurante}: ')
+    dados_restaurante = {'nome': nome_restaurante, 'categoria': categoria, 'ativo': False}
+    restaurantes.append(dados_restaurante)
     print(f"\nRestaurante '{nome_restaurante}' cadastrado com sucesso!\n")
     voltar_menu()
 
+def exibir_subtitulo(texto):
+    os.system("cls")
+    linha_de_asteriscos = '*' * len(texto)
+    print(linha_de_asteriscos)
+    print(texto)
+    print(linha_de_asteriscos)
+    print()
+
 def listar_restaurantes():
     os.system("cls")
-    print("LISTA DE RESTAURANTES CADASTRADOS:\n")
+    exibir_subtitulo("LISTA DE RESTAURANTES CADASTRADOS")
+    print(f'{'Nome do restaurante:'.ljust(22)} | {'Categoria restaurante:'.ljust(31)} | Status:\n')
     for restaurante in restaurantes:
         nome_restaurante = restaurante['nome']
         categoria_restaurante = restaurante['categoria']
-        print(f"- {nome_restaurante} | Categoria: {categoria_restaurante} | Ativo: {'Sim' if restaurante['ativo'] else 'Não'}\n")
+        print(f"- {nome_restaurante.ljust(20)} | Categoria: {categoria_restaurante.ljust(20)} | Ativo: {'Sim' if restaurante['ativo'] else 'Não'}\n")
         #É possivel usar condicionais dentro das f-strings.
+        #ljust() alinha o texto à esquerda, e o número dentro do parênteses define os espaços reservados.
+    voltar_menu()
+
+def alternar_status ():
+    exibir_subtitulo("ATIVAR/DESATIVAR RESTAURANTE")
+    nome_restaurante = input("Digite o nome do restaurante que deseja ativar/desativar: ")
+    restaurante_encontrado = False
+    for restaurante in restaurantes:
+        if nome_restaurante.lower() == restaurante['nome'].lower(): #usamos .lower() para ignorar diferenças entre maiúsculas e minúsculas.
+            restaurante_encontrado = True
+            restaurante['ativo'] = not restaurante['ativo'] #not inverte o valor booleano, se for True vira False e vice-versa.
+            status = 'ativado' if restaurante['ativo'] else 'desativado' #criada uma variável temporária para armazenar o status atual do restaurante, usando ternário.
+            print(f"\nRestaurante '{nome_restaurante}' foi {status} com sucesso!\n") 
+            break #usamos break para sair do loop assim que o restaurante for encontrado.
+    if not restaurante_encontrado: #se o restaurante_encontrado não for alterado para True, então o restaurante não foi encontrado.
+        print(f"\nRestaurante '{nome_restaurante}' não encontrado na lista de cadastrados.\n")
+
     voltar_menu()
 
 def escolher_opcao():
@@ -79,8 +107,8 @@ def escolher_opcao():
 
     elif opcao == 3:
         os.system("cls")
-        print("Você escolheu a opção de ativar/desativar restaurante.\n")
-        #adicionar a lógica para ativar/desativar restaurante
+        alternar_status ()
+       
 
     else:
         encerrar_app()    
