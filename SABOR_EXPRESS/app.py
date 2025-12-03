@@ -26,7 +26,8 @@ def menu_app():
     1 - Cadastrar restaurante
     2 - Listar restaurantes
     3 - Ativar/Desativar restaurante
-    4 - Sair do sistema
+    4 - Apagar restaurante cadastrado      
+    5 - Sair do sistema
         
         """)
 
@@ -39,6 +40,10 @@ def voltar_menu():
     main()
 
 def cadastrar_restaurante():
+    '''Função para cadastrar um novo restaurante.
+    inputs: nome e categoria do restaurante.
+    outputs: adiciona o restaurante à lista de restaurantes.
+    '''
     os.system("cls")
     print("CADASTRO DE RESTAURANTES\n")
     nome_restaurante = input("Digite o nome do restaurante que deseja cadastrar: ")
@@ -49,6 +54,8 @@ def cadastrar_restaurante():
     voltar_menu()
 
 def exibir_subtitulo(texto):
+    '''Função para exibir subtítulos formatados'''
+
     os.system("cls")
     linha_de_asteriscos = '*' * len(texto)
     print(linha_de_asteriscos)
@@ -57,6 +64,13 @@ def exibir_subtitulo(texto):
     print()
 
 def listar_restaurantes():
+    '''Função para listar todos os restaurantes cadastrados.
+
+    Percorre a lista de restaurantes e exibe o nome, categoria e status de cada um.
+
+    outputs: exibe no terminal a lista de restaurantes com nome, categoria e status.
+    '''
+
     os.system("cls")
     exibir_subtitulo("LISTA DE RESTAURANTES CADASTRADOS")
     print(f'{'Nome do restaurante:'.ljust(22)} | {'Categoria restaurante:'.ljust(31)} | Status:\n')
@@ -69,6 +83,11 @@ def listar_restaurantes():
     voltar_menu()
 
 def alternar_status ():
+    '''Função para ativar ou desativar um restaurante.
+    inputs: busca o nome do restaurante.
+    outputs: altera o status do restaurante na lista de restaurantes utilizando o not
+    '''
+
     exibir_subtitulo("ATIVAR/DESATIVAR RESTAURANTE")
     nome_restaurante = input("Digite o nome do restaurante que deseja ativar/desativar: ")
     restaurante_encontrado = False
@@ -84,12 +103,38 @@ def alternar_status ():
 
     voltar_menu()
 
+def apagar_restaurante():
+    '''
+    Função para apagar um restaurante da lista.
+    inputs: busca o nome do restaurante.
+    outputs: remove o restaurante da lista de restaurantes.
+    '''
+    exibir_subtitulo('APAGAR RESTAURANTE')
+    nome_restaurante = input("Digite o nome do restaurante que deseja apagar: ")
+    restaurante_encontrado = False
+    for restaurante in restaurantes:
+        if nome_restaurante.lower() == restaurante['nome'].lower():
+            restaurante_encontrado = True
+            restaurantes.remove(restaurante) #remove o restaurante da lista.
+            print(f"\nRestaurante '{nome_restaurante}' foi apagado com sucesso!\n")
+            break
+
+    if not restaurante_encontrado:
+        print(f"\nRestaurante '{nome_restaurante}' não encontrado na lista de cadastrados.\n")
+
+    voltar_menu()
+
 def escolher_opcao():
+    '''Função para escolher a opção do menu.
+    inputs: opção escolhida pelo usuário.
+    outputs: chama a função correspondente à opção escolhida.
+    '''
+
     while True:
 
         try:
             opcao = int(input("Digite a opção desejada: "))
-            if opcao in [1, 2, 3, 4]:
+            if opcao in [1, 2, 3, 4, 5]:
                 break
             else:
                 os.system("cls")
@@ -108,12 +153,19 @@ def escolher_opcao():
     elif opcao == 3:
         os.system("cls")
         alternar_status ()
-       
 
+    elif opcao == 4:
+        os.system("cls")
+        apagar_restaurante()
+       
     else:
         encerrar_app()    
 
 def main():
+    '''Função principal do aplicativo.
+    Chama as funções para exibir o nome do app, o menu e escolher a opção.
+    '''
+
     os.system("cls")
     nome_app()
     menu_app()
