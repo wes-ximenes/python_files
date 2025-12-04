@@ -1,10 +1,11 @@
-#utilizar funções em todo o código, ajuda a organizar melhor o código e facilitar a leitura, ficando mais limpo.
+#utilizar funções em todo o código, ajuda a organizar melhor o código e facilitar a leitura, ficando mais limpo e fácil de corrigir algum bug.
 
 import os #biblioteca para interações com o sistema operacional, contendo alguns comandos como limpar o terminal "os.system("cls")".
 
 restaurantes = [{'nome': 'Umi', 'categoria': 'Japonesa','ativo': True}, 
                 {'nome': 'Burger House', 'categoria': 'Hamburgueria','ativo': False}, 
-                {'nome': 'Pasta Bella', 'categoria': 'Massas','ativo': False}
+                {'nome': 'Pasta Bella', 'categoria': 'Massas','ativo': False},
+                {'nome': 'Taco Loco', 'categoria': 'Mexicana','ativo': True}
                 ] #lista de dicionários para armazenar os restaurantes cadastrados, com dicionários se torna mais fácil manipular os dados.
 
 def nome_app():
@@ -47,7 +48,7 @@ def cadastrar_restaurante():
     os.system("cls")
     print("CADASTRO DE RESTAURANTES\n")
     nome_restaurante = input("Digite o nome do restaurante que deseja cadastrar: ")
-    categoria = input(f'Digite a categoria do restaurante {nome_restaurante}: ')
+    categoria = input(f'Digite a categoria do restaurante {nome_restaurante} (Tipo de refeição servida): ')
     dados_restaurante = {'nome': nome_restaurante, 'categoria': categoria, 'ativo': False}
     restaurantes.append(dados_restaurante)
     print(f"\nRestaurante '{nome_restaurante}' cadastrado com sucesso!\n")
