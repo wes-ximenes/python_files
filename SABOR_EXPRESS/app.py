@@ -67,7 +67,7 @@ def exibir_subtitulo(texto):
 def listar_restaurantes():
     '''Função para listar todos os restaurantes cadastrados.
 
-    Percorre a lista de restaurantes e exibe o nome, categoria e status de cada um.
+    Percorre a lista de restaurantes com laço 'for' e exibe o nome, categoria e status de cada um.
 
     outputs: exibe no terminal a lista de restaurantes com nome, categoria e status.
     '''
