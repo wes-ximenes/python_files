@@ -68,11 +68,7 @@ def listar_restaurantes():
     '''
     Função para listar todos os restaurantes cadastrados.
 
-<<<<<<< HEAD
     Percorre a lista de restaurantes com laço 'for' e exibe o nome, categoria e status de cada um.
-=======
-    Percorre a lista de restaurantes com 'for' e exibe o nome, categoria e status de cada um.
->>>>>>> 4fa058b377133c71f679498a980a638ec3137176
 
     outputs: exibe no terminal a lista de restaurantes com nome, categoria e status.
     '''
