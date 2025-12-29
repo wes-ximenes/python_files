@@ -1,5 +1,6 @@
 temp/
 
 
-# a pasta .gitignore serve para o git ignorar arquivos e pastas especificas no momento de fazer commit.
+# A pasta .gitignore serve para o git ignorar arquivos e pastas especificas no momento de fazer commit.
+# Para cria-la basta criar um arquivo chamado .gitignore na raiz do projeto e adicionar os arquivos ou pastas que deseja ignorar.
 # Nesse caso, a pasta temp/ sera ignorada pelo git, e todo conteúdo temp/ no projeto não será enviado ao repositório remoto, quando der push.
