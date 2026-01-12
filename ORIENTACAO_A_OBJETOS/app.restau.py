@@ -1,21 +1,26 @@
 from modelos.restaurante import Restaurante
+from modelos.cardapio.pratos import Prato
+from modelos.cardapio.bebidas import Bebida
+from modelos.cardapio.sobremesa import Sobremesa
 
 restaurante_praca = Restaurante('restaurante da Praça', 'Comida Caseira')
-restaurante_praca.adicionar_avaliacao('Wesley', 6.5, 'Excelente comida!')
-restaurante_praca.adicionar_avaliacao('Ana', 5.5, 'Ótimo atendimento.')
-restaurante_praca.adicionar_avaliacao('Carlos', 9.2, 'Comida boa, mas o ambiente poderia ser melhor.')
+bebida_suco = Bebida('Suco de laranja', 5.00, '300ml')
+bebida_suco.aplicar_desconto()
+prato_bife = Prato('Bife acebolado', 25.00, 'Bife com cebolas douradas na manteiga.')
+prato_bife.aplicar_desconto()
+sobremesa_pudim = Sobremesa('Pudim de leite', 10.00, 'Pequeno')
+restaurante_praca.adicionar_ao_cardapio(bebida_suco)
+restaurante_praca.adicionar_ao_cardapio(prato_bife)
+restaurante_praca.adicionar_ao_cardapio(sobremesa_pudim)
 
 restaurante_pizza = Restaurante('pizzaria Bella', 'Pizza')
-restaurante_pizza.adicionar_avaliacao('Mariana', 4.8, 'Deliciosas pizzas!')
-restaurante_pizza.adicionar_avaliacao('João', 7, 'Demorou muito para entregar.')
-restaurante_pizza.adicionar_avaliacao('Lucas', 7.5, 'Melhor pizza da cidade!')
 
 restaurante_mexico = Restaurante('El Mexicano', 'Comida Mexicana')
 
 restaurante_mexico.alternar_status()
 
 def main():
-    Restaurante.listar_restaurantes()
+    restaurante_praca.exibir_cardapio
 
 
 if __name__ == '__main__':

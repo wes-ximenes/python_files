@@ -1,4 +1,5 @@
 from .avaliacoes import Avaliacao
+from modelos.cardapio.item_cardapio import ItemCardapio
 
 class Restaurante: #classe funciona como um molde para criar objetos
 
@@ -9,6 +10,7 @@ class Restaurante: #classe funciona como um molde para criar objetos
         self.categoria = categoria.title()
         self._ativo = False #atributo privado, por convenção, atributos privados são precedidos por um underline (_), indicando que não devem ser acessados diretamente fora da classe.
         self._avaliacoes = [] #atributo privado para armazenar as avaliações do restaurante.
+        self._cardapio = [] #atributo privado para armazenar os itens do cardápio do restaurante.
         Restaurante.restaurantes.append(self) #adiciona o objeto criado na lista de restaurantes da classe Restaurante.
     
     def __str__(self):
@@ -50,6 +52,37 @@ class Restaurante: #classe funciona como um molde para criar objetos
         numero_de_notas = len(self._avaliacoes) #vai pegar o comprimento da lista de avaliações (numero de notas contidas lá)  
         media = round(soma_das_notas / numero_de_notas, 1) #calcula a média e arredonda para 1 casa decimal.
         return media #retorna a média calculada. Na listagem vamos transformar a média em string para funcionar o ljust(), que só funciona com texto.
+    
+
+    # def adicionar_bebida_ao_cardapio(self, bebida): #método para adicionar uma bebida ao cardápio do restaurante.
+    #     self._cardapio.append(bebida) #adiciona a bebida à lista de itens do cardápio.
+
+
+    # def adicionar_prato_ao_cardapio(self, prato): #método para adicionar um prato ao cardápio do restaurante.
+    #     self._cardapio.append(prato) #adiciona o prato à lista de itens do cardápio.    
+    def adicionar_ao_cardapio(self, item):
+        if isinstance(item, ItemCardapio):
+            self._cardapio.append(item)
+
+
+    @property #property afirma que o método servirá apenas para leitura do atributo.
+    def exibir_cardapio(self):
+        if not self._cardapio:
+            print("O cardápio está vazio.")
+            return
+        
+        print(f'Cardápio do {self._nome}:\n')
+        for i,item in enumerate(self._cardapio, start=1): #usando enumerate para pegar o índice e o item ao mesmo tempo.
+            if hasattr(item, 'descricao'): #hasattr (has atribute) verifica se o item tem o atributo 'descrição'.
+                mensagem_prato = f'{i}. Nome: {item._nome} | Preço: R$ {item._preço:.2f} | Descrição: {item.descricao}'
+                print(mensagem_prato)
+            
+            elif hasattr(item, 'tamanho'): #verifica se o item tem o atributo 'tamanho'.
+                mensagem_bebida = f'{i}. Nome: {item._nome} | Preço: R$ {item._preço:.2f} | Tamanho: {item.tamanho}'
+                print(mensagem_bebida)
+
+
+        
 
 
 
