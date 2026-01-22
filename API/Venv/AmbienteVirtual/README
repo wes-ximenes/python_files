@@ -1,0 +1,34 @@
+PASTA CRIADA PARA TRABALHAR COM AMBIENTES VIRTUAIS DO PYTHON (VENV)
+
+||CRIANDO UM AMBIENTE VIRTUAL PARA TRABALHAR COM PYTHON:
+
+VENV -> Ambiente virtual comumente utilizado em python.
+
+1- Abra uma nova pasta vazia no VSCODE.
+
+2- No terminal: python -m venv <nome_do_ambiente>
+Ele abrirá uma pasta nova com outras subpastas:
+-INCLUDE: Pasta onde ficam os módulos necessários do projeto.
+-LIB: Pasta onde ficará todos os pacotes e dependências do projeto
+-SCRIPTS: Pasta onde ficará todos os scripts e executáveis do ambiente virtual.
+-PYVENV.CFG: Arquivo que mostra as informações do ambiente virtual, onde está alocado, versão, etc.
+
+3- Para ativar o ambiente virtual:
+Ele virá com 3 tipos de ativação na pasta scripts (Win, Mac e Linux)
+-No terminal (win): Coloca o endereço onde está o arquivo de ativação "activate.bat" | <nome_do_ambiente>\Scripts\activate
+-Vc saberá que está ativo, quando o terminal ficar com o "venv" entre parênteses.
+
+4- Para desativar o ambiente virtual (caso queira trocar, etc)
+No terminal: deactivate
+
+5- Para instalar pacotes e dependências:
+-No terminal: pip install <nome_do_pacote>
+-O pip instalará o pacote na pasta LIB do ambiente virtual.
+-Ele ficará disponível apenas quando o ambiente virtual estiver ativo, não será encontrado fora dele.
+-Dessa forma isolamos tudo que será necessário para o projeto, sem misturar com outros projetos ou com o python global da máquina.
+
+6- Para listar os pacotes instalados:
+No terminal: pip list
+
+7- Para gerar um arquivo com todas as dependências do projeto:
+No terminal: pip freeze > requirements.txt

@@ -53,15 +53,9 @@ class Restaurante: #classe funciona como um molde para criar objetos
         media = round(soma_das_notas / numero_de_notas, 1) #calcula a média e arredonda para 1 casa decimal.
         return media #retorna a média calculada. Na listagem vamos transformar a média em string para funcionar o ljust(), que só funciona com texto.
     
-
-    # def adicionar_bebida_ao_cardapio(self, bebida): #método para adicionar uma bebida ao cardápio do restaurante.
-    #     self._cardapio.append(bebida) #adiciona a bebida à lista de itens do cardápio.
-
-
-    # def adicionar_prato_ao_cardapio(self, prato): #método para adicionar um prato ao cardápio do restaurante.
-    #     self._cardapio.append(prato) #adiciona o prato à lista de itens do cardápio.    
+ 
     def adicionar_ao_cardapio(self, item):
-        if isinstance(item, ItemCardapio):
+        if isinstance(item, ItemCardapio): #verifica se o item é uma instância da classe ItemCardapio ou suas subclasses (Prato, Bebida), pra adicionar precisa ter alguma ligação com ItemCardapio.
             self._cardapio.append(item)
 
 
@@ -72,7 +66,7 @@ class Restaurante: #classe funciona como um molde para criar objetos
             return
         
         print(f'Cardápio do {self._nome}:\n')
-        for i,item in enumerate(self._cardapio, start=1): #usando enumerate para pegar o índice e o item ao mesmo tempo.
+        for i,item in enumerate(self._cardapio, start=1): #usando enumerate para pegar o índice e o item ao mesmo tempo. o 'i, item' representa o índice e o item respectivamente. start=1 faz a contagem começar do 1 ao invés do 0.
             if hasattr(item, 'descricao'): #hasattr (has atribute) verifica se o item tem o atributo 'descrição'.
                 mensagem_prato = f'{i}. Nome: {item._nome} | Preço: R$ {item._preço:.2f} | Descrição: {item.descricao}'
                 print(mensagem_prato)
