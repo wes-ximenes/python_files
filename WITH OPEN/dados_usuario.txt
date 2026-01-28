@@ -1,0 +1,20 @@
+Nome: Wesley
+Idade: 27
+Estado Civil: Casado
+
+Nome: Micheline
+Idade: 52
+Estado Civil: Casada
+
+Nome: Roney
+Idade: 51
+Estado Civil: Casado
+
+Nome: Igor
+Idade: 22
+Estado Civil: Casado
+
+Nome: Duda
+Idade: 24
+Estado Civil: Casada
+
