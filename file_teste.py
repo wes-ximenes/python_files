@@ -5,10 +5,11 @@
 # numeros_pares = [x for x in lista if x % 2 == 0] #o x antes do for é o valor que será adicionado na nova lista e o x depois do for é o valor que está sendo iterado na lista original
 # print(numeros_pares)
 
-# with open ('dados.json', 'w') as arquivo:
-#     arquivo.write('{"nome": "Wesley", "idade": 27, "cidade": "Recife"}')
+#criando arquivos com with open ('w' = white)
+with open ('dados.json', 'w') as arquivo:
+     arquivo.write('{"nome": "Wesley", "idade": 27, "cidade": "Recife"}')
 
-
+#lendo o arquivo criado, com with open ('r' = read)
 with open ('dados.json', 'r') as arquivo:
     conteudo = arquivo.read()
     print(conteudo)
